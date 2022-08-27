@@ -23,4 +23,5 @@ urlpatterns = [
     path('home/', views.home),
     # path('', views.home),
     path('variables/', include('variables.urls')),
+    path('measurements/', include('measurements.urls'))
 ]
