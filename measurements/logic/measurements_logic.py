@@ -13,7 +13,7 @@ def update_measurement(var_pk, new_measurement):
     return measurement
 
 def create_measurement(mes) -> Measurement:
-    measurement = Measurement(name=mes['name'])
+    measurement = Measurement(value=mes['value'])
     measurement.save()
     return measurement
 
