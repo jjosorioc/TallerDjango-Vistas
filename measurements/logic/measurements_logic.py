@@ -1,4 +1,6 @@
+from datetime import datetime
 from ..models import Measurement
+from variables.logic import variables_logic as vl
 
 def get_measurements():
     return Measurement.objects.all()
@@ -13,7 +15,13 @@ def update_measurement(var_pk, new_measurement):
     return measurement
 
 def create_measurement(mes) -> Measurement:
-    measurement = Measurement(value=mes['value'])
+    measurement = Measurement(
+        variable = vl.get_variable(mes['variable']),
+        value=mes['value'],
+        unit=mes['unit'],
+        place=mes['place'],
+        dateTime=mes["dateTime"]
+    )
     measurement.save()
     return measurement
 
