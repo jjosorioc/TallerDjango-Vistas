@@ -10,7 +10,7 @@ def get_measurement(id):
 
 def update_measurement(var_pk, new_measurement):
     measurement = get_measurement(var_pk)
-    measurement.name = new_measurement['name']
+    measurement.value = new_measurement['value']
     measurement.save()
     return measurement
 
