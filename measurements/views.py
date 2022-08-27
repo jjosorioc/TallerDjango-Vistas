@@ -24,9 +24,8 @@ def measurements_view(request):
 
     if (request.method) == 'POST':
         measurement_dto = ml.create_measurement(json.loads(request.body))
-        measurement = serializers.serialize('json', measurement_dto)  # type: ignore
+        measurement = serializers.serialize('json', [measurement_dto,])  # type: ignore
         return HttpResponse(measurement, 'application/json')
-
     if (request.method) == "DELETE":
         id = request.GET.get('id', None)
         if (id):
