@@ -222,3 +222,4 @@ ENV/
 !**/migrations
 
 !**/migrations/__init__.py
+monitoring/settings.py
