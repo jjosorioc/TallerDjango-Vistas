@@ -1,13 +1,26 @@
 {
 	"info": {
-		"_postman_id": "99b3c857-7aca-4408-8855-d5d6af92fca7",
+		"_postman_id": "848135b2-3769-4f1d-b08c-2865f666c356",
 		"name": "Monitoring",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16380615"
+		"_exporter_id": "19609774"
 	},
 	"item": [
 		{
 			"name": "Create Variable",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"pk\", jsonData[0].pk);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -112,14 +125,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/variables/3",
+					"raw": "{{host}}:{{port}}{{api_path}}/variables/{{pk}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
 						"variables",
-						"3"
+						"{{pk}}"
 					]
 				}
 			},
@@ -206,18 +219,20 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/variables?id=3",
+					"raw": "{{host}}:{{port}}{{api_path}}/variables/{{pk}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
-						"variables"
+						"variables",
+						"{{pk}}"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "3"
+							"value": "pk",
+							"disabled": true
 						}
 					]
 				}
@@ -348,14 +363,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/variables/1",
+					"raw": "{{host}}:{{port}}{{api_path}}/variables/{{pk}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
 						"variables",
-						"1"
+						"{{pk}}"
 					]
 				}
 			},
@@ -417,12 +432,25 @@
 		},
 		{
 			"name": "Create mesaurement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"pkMeasurements\", jsonData[0].pk);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"variable\": 2,\r\n    \"value\" : 50.2,\r\n    \"unit\" : \"Celsius\",\r\n    \"place\" : \"Bogota\",\r\n    \"dateTime\": \"10/25/2022\"\r\n}",
+					"raw": "{\r\n    \"variable\": {{pk}},\r\n    \"value\" : 50.2,\r\n    \"unit\" : \"Celsius\",\r\n    \"place\" : \"Bogota\",\r\n    \"dateTime\": \"10/25/2022\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -449,19 +477,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/measurements?id=1",
+					"raw": "{{host}}:{{port}}{{api_path}}/measurements/{{pkMeasurements}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
-						"measurements"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"measurements",
+						"{{pkMeasurements}}"
 					]
 				}
 			},
@@ -477,14 +500,14 @@
 					"raw": "{\r\n    \"value\" : 75\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/measurements/1",
+					"raw": "{{host}}:{{port}}{{api_path}}/measurements/{{pkMeasurements}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
 						"measurements",
-						"1"
+						"{{pkMeasurements}}"
 					]
 				}
 			},
@@ -496,14 +519,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/measurements/1",
+					"raw": "{{host}}:{{port}}{{api_path}}/measurements/{{pkMeasurements}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
 						"measurements",
-						"1"
+						"{{pkMeasurements}}"
 					]
 				}
 			},
@@ -515,14 +538,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}{{api_path}}/measurements/4",
+					"raw": "{{host}}:{{port}}{{api_path}}/measurements/{{pkMeasurements}}",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}{{api_path}}",
 					"path": [
 						"measurements",
-						"4"
+						"{{pkMeasurements}}"
 					]
 				}
 			},
