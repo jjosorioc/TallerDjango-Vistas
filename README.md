@@ -1,20 +1,20 @@
 # Monitoring Views Workshop
+- Foto de la prueba hecha para crear un Measurement desde postman (Post measurement)
 
-* if you want a easy installation use **pipenv\*** else use **requirements.txt**
+![alt text](https://github.com/jjosorioc/TallerDjango-Vistas/blob/master/docs/post_measurements.png)
 
-**pipenv:** can be installed wih:
+-Foto de la prueba hecha para obtener Measurements desde postman (Retrieve measurements)
 
-```bash
-pip install pipenv
-```
+![alt text](https://github.com/jjosorioc/TallerDjango-Vistas/blob/master/docs/retrieve_measurements.png)
 
-dont forget to check if you have the right python version: 3.8
+-Foto de la prueba hecha para obtener Measurement desde postman (Retrieve measurement)
 
-* Executing with pipenv 
-```bash
-pipenv run python {command}
-```
-Example:
-```bash
-pipenv run python manage.py makemigrations 
-```
+![alt text](https://github.com/jjosorioc/TallerDjango-Vistas/blob/master/docs/update_measurement.png)
+
+-Foto de la prueba hecha para hacer el put/batch desde postman (Update measurement)
+
+![alt text](https://github.com/jjosorioc/TallerDjango-Vistas/blob/master/docs/update_measurement.png)
+
+-Foto de la prueba hecha para hacer el delete desde postman (Delete measurement)
+
+![alt text](https://github.com/jjosorioc/TallerDjango-Vistas/blob/master/docs/delete_measurement.png)
